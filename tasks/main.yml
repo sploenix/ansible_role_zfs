@@ -1,0 +1,21 @@
+---
+#- name: "Configure required repos"
+#  ansible.builtin.import_role:
+#    name: sploenix.base.repo
+#  vars:
+#    repos:
+#      - zfs
+
+- name: "Install required packages"
+  vars:
+    packages_present: "{{ packages_present_zfs_RedHat if ansible_os_family == 'RedHat' else packages_present_zfs_Debian }}"
+  ansible.builtin.import_role:
+    name: sploenix.base.packages
+  tags: install
+
+- name: "Handle ZFS datasets"
+  ansible.builtin.include_tasks: dataset.yml
+  loop: "{{ (zfs.datasets | d({})).items() }}"
+  loop_control:
+    loop_var: dataset
+    label: dataset[0]

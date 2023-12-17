@@ -1,0 +1,11 @@
+---
+packages_present_zfs_Debian:
+  - zfs-dkms
+  - zfs-zed
+  - zfsutils-linux
+
+packages_present_zfs_RedHat:
+  - zfs-release-2
+  - zfs-dkms
+  - zfs
+  - zfs-dracut

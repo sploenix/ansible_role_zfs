@@ -1,0 +1,7 @@
+---
+- name: "Handle ZFS dataset[0]"
+  community.general.zfs:
+    extra_zfs_properties: "{{ dataset[1].zfs_properties | d(omit) }}"
+    name: "{{ dataset[1].name }}"
+    state: "{{ dataset[1].state }}"
+    origin: "{{ dataset[1].origin | d(omit) }}"
