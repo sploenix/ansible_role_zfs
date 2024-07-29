@@ -1,5 +1,6 @@
 ---
 packages_present_zfs_Debian:
+  - linux-headers-amd64
   - zfs-dkms
   - zfs-zed
   - zfsutils-linux
@@ -9,3 +10,7 @@ packages_present_zfs_RedHat:
   - zfs-dkms
   - zfs
   - zfs-dracut
+
+# any role that can handle a list "packages_present" containing the names of the packages to be installed
+#packages_role_fqcn: my_namespace.my_collection.my_role
+packages_role_fqcn: ane.base.apt
