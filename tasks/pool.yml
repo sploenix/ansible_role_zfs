@@ -15,4 +15,5 @@
       ignore_errors: true
 
     - name: "Create zpool \"{{ zpool[0] }}\""
+      when: gather_zpool_facts_out.failed
       ansible.builtin.shell: "zpool create {{ zpool[0] }} {{ zpool[1].mode | d('') }} {{ zpool[1].disks | join(' ') }}"
