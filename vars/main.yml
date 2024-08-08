@@ -13,4 +13,4 @@ packages_present_zfs_RedHat:
 
 # any role that can handle a list "packages_present" containing the names of the packages to be installed
 #packages_role_fqcn: my_namespace.my_collection.my_role
-packages_role_fqcn: ane.base.apt
+__fqcn_packages_role__: ane.base.apt

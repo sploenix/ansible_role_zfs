@@ -11,7 +11,7 @@
     packages_present: "{{ packages_present_zfs_RedHat if ansible_os_family == 'RedHat' else packages_present_zfs_Debian }}"
     call_from: "role zfs"
   ansible.builtin.import_role:
-    name: "{{ packages_role_fqcn }}"
+    name: "{{ __fqcn_packages_role__ }}"
   tags: install
 
 - name: "Handle ZFS Pools"
