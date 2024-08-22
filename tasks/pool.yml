@@ -9,11 +9,7 @@
       # task will fail if zpool does not exist, this is the expected behaviour and no error.
       ignore_errors: true
 
-    - ansible.builtin.debug:
-        var: item
-      loop: "{{ ansible_zfs_pools }}"
-      ignore_errors: true
-
     - name: "Create zpool \"{{ zpool[0] }}\""
       when: gather_zpool_facts_out.failed
+      become: true
       ansible.builtin.shell: "zpool create {{ zpool[0] }} {{ zpool[1].mode | d('') }} {{ zpool[1].disks | join(' ') }}"
